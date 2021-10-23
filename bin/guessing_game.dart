@@ -13,6 +13,10 @@ int generateSecret() {
 }
 
 void game() {
+  Colorize colorize = Colorize();
+  colorize.bold();
+  colorize.italic();
+  
   int secret = generateSecret();
   int guessed = 0;
   int tries = 3;
@@ -21,18 +25,24 @@ void game() {
     var guessing = stdin.readLineSync();
     var guess = int.parse(guessing!);
     if (guess == secret) {
-      print("\n!!!!!!!!!!\n\nyou won with [$secret]\n\n!!!!!!!!!!");
+      colorize.initial = "\n!!!!!!!!!!\n\nyou won with [$secret]\n\n!!!!!!!!!!";
+      print(colorize.bgGreen());
       break;
     } else if (guess != secret) {
-      print("wrong guess with $guess");
+      colorize.initial = "wrong guess with $guess";
+      print(colorize.bgBlue());
       guessed = guess;
       tries -= 1;
     } else {
-      print("you lost! number was $secret");
+      colorize.initial =
+          "\n^_^ ^_^ ^_^ ^_^ ^_^\nyou lost! number was $secret\n^_^ ^_^ ^_^ ^_^ ^_^";
+      print(colorize.bgRed());
       break;
     }
     if (tries == 0) {
-      print("\n^_^ ^_^ ^_^ ^_^ ^_^\nyou lost! number was $secret\n^_^ ^_^ ^_^ ^_^ ^_^");
+      colorize.initial =
+          "\n^_^ ^_^ ^_^ ^_^ ^_^\nyou lost! number was $secret\n^_^ ^_^ ^_^ ^_^ ^_^";
+      print(colorize.bgRed());
     }
   }
 }
