@@ -32,7 +32,7 @@ void game() {
       break;
     }
     if (tries == 0) {
-      print("\n^_^ ^_^ ^_^ ^_^ ^_^\nyou lost! number was $secret\n^_^ ^_^ ^_^ ^_^ ^_^ ");
+      print("\n^_^ ^_^ ^_^ ^_^ ^_^\nyou lost! number was $secret\n^_^ ^_^ ^_^ ^_^ ^_^");
     }
   }
 }
