@@ -46,4 +46,5 @@ dynamic input([option, par = "", range]) {
 void main(List<String> args) {
   print(startsWith("hello", "h"));
   print(endsWith("hello", "o"));
+  input("mult", ">> ", 20);
 }
